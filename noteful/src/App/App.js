@@ -18,7 +18,7 @@ function App() {
   return (  
     <Switch>
       <Route exact path="/" component={MainRoute} />
-      <Route exact path="/folder/:id" component={FolderRoute} />
+      <Route exact path="/folder/:name" component={FolderRoute} />
       <Route exact path="/note" component={NoteRoute} />
       <Route component={NotFound} />
     </Switch>

@@ -1,11 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+
+import { NavLink } from 'react-router-dom'
 
 function Folder(props) {
-    let LinkUrl = `/folder/${props.id}`
+    let LinkUrl = `/folder/${props.name}`
 
     return (<li>
-        <Link to={LinkUrl}>{props.name}</Link>
+        <NavLink key={props.id} to={LinkUrl} className='folder' id={props.id}>{props.name}</NavLink>
         </li>
 
     )
