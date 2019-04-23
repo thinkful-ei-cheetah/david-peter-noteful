@@ -1,0 +1,9 @@
+.NoteRoute {
+    
+}
+
+.current-note {
+    position:absolute;
+    float:right;
+    background-color: lightblue;
+}

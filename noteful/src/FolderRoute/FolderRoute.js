@@ -32,9 +32,7 @@ function FolderRoute(props) {
   return (
     <div className="Main">
       <header className="App-header">
-        this is test app folder route:
         {props.match.params.name}
-
       </header>
 
       <FolderNav folders={data.folders} />

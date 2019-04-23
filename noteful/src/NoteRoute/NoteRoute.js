@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Note from '../Note-comp/Note';
 import { withRouter } from 'react-router-dom'
+import './NoteRoute.css'
 
 class NoteRoute extends Component {
   constructor(props) {
@@ -33,16 +34,12 @@ class NoteRoute extends Component {
     
     return (
       <div className="NoteRoute">
-        {/* <Route exact path="/" component={Main-route} /> */}
-        <header className="App-header">
-          this is test Note route
-        </header>
-        <div>
+        <div className='side-bar'>
           Side bar goes here
         <button className="NoteBackButton" type="button" onClick={() => this.handleBackClick(currentFolder.name)}>Back</button>
           {currentFolder.name}
         </div>
-        <div>
+        <div className='current-note'>
           <Note
             id={currentNote.id}
             name={currentNote.name}
