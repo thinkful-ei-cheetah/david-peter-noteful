@@ -2,16 +2,19 @@ import React from 'react';
 import FolderNav from '../Folder-nav-comp/FolderNav';
 import Note from '../Note-comp/Note'
 
-function MainRoute() {
+function MainRoute(props) {
+
+  let data=props.data
 
     return (
       <div className="Main">
       {/* <Route exact path="/" component={Main-route} /> */}
         <header className="App-header">
         this is test app main-route
+        {data.selected.folder}
         </header>
 
-        <FolderNav />
+        <FolderNav folders={data.folders}/>
 
         <Note />
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 import {Route, Switch} from 'react-router-dom';
@@ -13,16 +13,37 @@ import DummyStore from '../DummyStore';
 
 
 
-function App() {
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+          folders:DummyStore.folders,
+          notes:DummyStore.notes,
+          selected: {
+            folder: 'test',
+            note: ''
+          }
+    }
+  }
 
-  return (  
-    <Switch>
-      <Route exact path="/" component={MainRoute} />
-      <Route exact path="/folder/:name" component={FolderRoute} />
+  
+
+render() {
+
+  return (  <Switch>
+      <Route exact path="/" render={({match}) =>  <MainRoute match={match} data={this.state}/>} 
+      
+      />
+
+  <Route exact path="/folder/:name" render={({match}) =>  <FolderRoute match={match} data={this.state} />} />
+
       <Route exact path="/note" component={NoteRoute} />
+
+      
       <Route component={NotFound} />
     </Switch>
   );
+}
 }
 
 export default App;

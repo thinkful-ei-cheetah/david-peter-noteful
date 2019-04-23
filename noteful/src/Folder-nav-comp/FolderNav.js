@@ -1,11 +1,10 @@
 import React from 'react';
 import Folder from '../Folder-comp/Folder';
-import DummyStore from '../DummyStore';
 
 
-function FolderNav() {
+function FolderNav(props) {
 
-let Folders = DummyStore.folders.map( folder => {
+let Folders = props.folders.map( folder => {
 
    return ( <Folder id={folder.id} name={folder.name}/> 
 )

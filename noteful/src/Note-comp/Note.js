@@ -1,9 +1,10 @@
 import React from 'react';
 
-function Note() {
+function Note(props) {
 
     return ( <div>
-        this is a note
+        {props.name}
+        {props.modified}
     </div>
 
     )
