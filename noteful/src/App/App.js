@@ -3,16 +3,25 @@ import './App.css';
 
 import {Route, Switch} from 'react-router-dom';
 
+import MainRoute from '../MainRoute/MainRoute';
+import FolderRoute from '../FolderRoute/FolderRoute';
+import NoteRoute from '../NoteRoute/NoteRoute';
+import NotFound from '../NotFound/NotFound'
+
+import DummyStore from '../DummyStore';
+
+
+
 
 function App() {
 
-  return (
-    <div className="App">
-    {/* <Route exact path="/" component={HomePage} /> */}
-      <header className="App-header">
-      this is test app header
-      </header>
-    </div>
+  return (  
+    <Switch>
+      <Route exact path="/" component={MainRoute} />
+      <Route exact path="/folder/:id" component={FolderRoute} />
+      <Route exact path="/note" component={NoteRoute} />
+      <Route component={NotFound} />
+    </Switch>
   );
 }
 
