@@ -4,23 +4,30 @@ import Note from '../Note-comp/Note'
 
 function MainRoute(props) {
 
-  let data=props.data
+  let data = props.data
 
-    return (
-      <div className="Main">
-      {/* <Route exact path="/" component={Main-route} /> */}
-        <header className="App-header">
-        this is test app main-route
+
+  let allNotes = data.notes.map(note => {
+    return <Note
+      id={note.id}
+      name={note.name}
+      modified={note.modified}
+      folderId={note.folderId}
+      content={note.content}
+    />;
+  })
+
+  return (
+    <div className="Main">
+      <header className="App-header">
         {data.selected.folder}
-        </header>
-
-        <FolderNav folders={data.folders}/>
-
-        <Note />
-
-
+      </header>
+      <FolderNav folders={data.folders} />
+      <div>
+        {allNotes}
       </div>
-    );
-  }
-  
-  export default MainRoute;
+    </div>
+  );
+}
+
+export default MainRoute;

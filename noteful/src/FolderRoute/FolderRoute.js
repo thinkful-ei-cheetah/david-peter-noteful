@@ -5,45 +5,44 @@ import Note from '../Note-comp/Note'
 function FolderRoute(props) {
 
 
-  let data=props.data
-  console.log(props.match);
-  
+  let data = props.data
+
 
   let allNotes = data.notes
 
-  let filteredArray = data.folders.filter( i => Object.values(i).includes(`${props.match.params.name}`) === true);
+  let filteredArray = data.folders.filter(i => Object.values(i).includes(`${props.match.params.name}`) === true);
   let currentFolder = filteredArray[0];
 
-  let currentNotes = allNotes.map( note => {
-if(note.folderId === currentFolder.id){
-      return <Note 
-                id={note.id} 
-                name={note.name}
-                modified={note.modified}
-                folderId={note.folderId}
-                content={note.content}
-                />;
-}
-  }) 
+  let currentNotes = allNotes.map(note => {
+    if (note.folderId === currentFolder.id) {
+      return <Note
+        id={note.id}
+        name={note.name}
+        modified={note.modified}
+        folderId={note.folderId}
+        content={note.content}
+      />;
+    }
+  })
 
 
   console.log(currentFolder);
   console.log(currentNotes);
 
-    return (
-      <div className="Main">
-        <header className="App-header">
+  return (
+    <div className="Main">
+      <header className="App-header">
         this is test app folder route:
         {props.match.params.name}
 
-        </header>
+      </header>
 
-        <FolderNav folders={data.folders}/>
+      <FolderNav folders={data.folders} />
 
-        {currentNotes}
+      {currentNotes}
 
-      </div>
-    );
-  }
-  
-  export default FolderRoute;
+    </div>
+  );
+}
+
+export default FolderRoute;
